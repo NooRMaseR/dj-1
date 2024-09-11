@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-*pl_^lq!dng6gznr@(+z(jy*4vfm**0%9q&43too#yjh5ih@*_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,maser-assistant.onrender.com,[::1]").split(",")
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]").split(",")
 
 # Application definition
 

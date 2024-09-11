@@ -1,0 +1,10 @@
+services:
+  app:
+   build: .
+   volumes:
+     - .:/dj_test
+   ports:
+     - 8000:8000
+   image: app:dj_test
+   container_name: dj_test_deploy
+   command: python manage.py runserver
