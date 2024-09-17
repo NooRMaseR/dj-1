@@ -14,4 +14,3 @@ ENTRYPOINT [ "sh", "entrypoint.sh"]
 
 COPY . .
 
-CMD [ "docker-compose", "up", "--build" ]
