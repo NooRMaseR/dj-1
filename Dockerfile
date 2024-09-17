@@ -4,8 +4,13 @@ ENV PYTHONBUFFRED=1
 
 WORKDIR /dj_test
 
-COPY . .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD python manage.py runserver
+EXPOSE 8000
+
+ENTRYPOINT [ "sh", "entrypoint.sh"]
+
+COPY . .
+
