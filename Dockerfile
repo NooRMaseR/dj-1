@@ -10,8 +10,8 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-ENTRYPOINT [ "sh", "entrypoint.sh"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
 
 COPY . .
 
-CMD [ "gunicorn", "dj_test.wsgi:application", "--bind", "0.0.0.0:8000" ]
+CMD ["gunicorn", "dj_test.wsgi:application", "--bind", "0.0.0.0:8000"]
