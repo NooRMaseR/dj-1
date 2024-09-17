@@ -15,7 +15,7 @@ services:
     image: nginx:latest
     container_name: dj_nginx
     ports:
-      - "50:50"  # Map port 50 on the host to port 50 on the container
+      - "5000:5000"  # Map port 80 on the host to port 80 on the container
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf  # Mount the Nginx configuration
       - ./mediafiles:/app/mediafiles  # Mount media files
