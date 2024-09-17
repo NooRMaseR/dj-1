@@ -4,7 +4,7 @@ services:
    volumes:
      - .:/dj_test
    ports:
-     - ${PORT}:5000
+     - 5000:5000
    image: app:dj_test
    container_name: dj_test_deploy
    command: gunicorn dj_test.wsgi:application --bind 0.0.0.0:5000
