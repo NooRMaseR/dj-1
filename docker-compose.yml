@@ -32,7 +32,7 @@ services:
         sh -c "python manage.py migrate &&
              python manage.py collectstatic --noinput &&
              gunicorn dj_test.wsgi:application --bind 0.0.0.0:8000"
-    image: dj_test:latest
+    image: dj_test:dj_test
     container_name: dj_test
     expose:
       - 8000
