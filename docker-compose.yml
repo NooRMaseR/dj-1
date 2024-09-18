@@ -1,0 +1,44 @@
+services:
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_password
+    ports:
+      - "5432:5432"
+
+
+  app:
+    build: .
+    volumes:
+      - .:/dj_test
+    ports:
+      - 8000:8000
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+      - SECRET_KEY=django-insecure-*pl_^lq!dng6gznr@(+z(jy*4vfm**0%9q&43too#yjh5ih@*_
+      - CLOUDINARY_URL=cloudinary://967892449995725:lmT54inc3SfymK3HLvdg9LHxofg@dv2embhdg
+      - POSTGRES_DB=django_db
+      - POSTGRES_USER=django_user
+      - POSTGRES_PASSWORD=django_password
+      - DB_HOST=db
+      - DB_PORT=5432
+    command: >
+        sh -c "python manage.py migrate &&
+             python manage.py deleteorphanedmedia --noinput &&
+             python manage.py collectstatic --noinput &&
+             gunicorn dj_test.wsgi:application --bind 0.0.0.0:8000"
+    image: app:dj_test
+    container_name: dj_test
+    expose:
+      - 8000
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
