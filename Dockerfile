@@ -15,5 +15,3 @@ COPY . .
 
 EXPOSE 8000
 
-
-

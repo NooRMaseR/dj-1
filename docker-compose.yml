@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=django_user
       - POSTGRES_PASSWORD=django_password
     ports:
-      - "5432:5432"
+      - "${PORT}:5432"
 
 
   app:
@@ -17,7 +17,7 @@ services:
     volumes:
       - .:/dj_test
     ports:
-      - 8000:8000
+      - ${PORT}:8000
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONDONTWRITEBYTECODE=1
