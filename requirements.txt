@@ -2,3 +2,4 @@ whitenoise
 Django==5.0.4
 gunicorn
 pillow==10.4.0
+django-cloudinary-storage==0.3.0

@@ -8,9 +8,10 @@
     <title>Test web</title>
 </head>
 <body>
-    <img src="{% static 'mediafiles/about-us.jpg' %}" alt="">
+    <img src="{% static 'images/about-us.jpg' %}" alt="">
     {% for data in datas %}
         <div>
+            <img src="{{ data.image.url }}" alt="{{ data.image.name }}">
             <h1>{{ data.name }}</h1>
             <h3>{{ data.price }}</h3>
         </div>
