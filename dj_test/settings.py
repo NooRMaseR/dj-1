@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',
     "main"
 ]
@@ -133,7 +133,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 MEDIA_URL = "/mediafiles/"
-MEDIA_ROOT = BASE_DIR / "mediafiles"
+# MEDIA_ROOT = BASE_DIR / "mediafiles"
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
