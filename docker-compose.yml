@@ -30,10 +30,9 @@ services:
       - DB_PORT=5432
     command: >
         sh -c "python manage.py migrate &&
-             python manage.py deleteorphanedmedia --noinput &&
              python manage.py collectstatic --noinput &&
              gunicorn dj_test.wsgi:application --bind 0.0.0.0:8000"
-    image: app:dj_test
+    image: dj_test:latest
     container_name: dj_test
     expose:
       - 8000
