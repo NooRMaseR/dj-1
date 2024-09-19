@@ -1,5 +1,6 @@
+import os
 from django.db import models
-from cloudinary import uploader
+# from cloudinary import uploader
 from django.dispatch import receiver
 
 
@@ -15,5 +16,6 @@ def delete(sender, instance, **kwargs):
     img = instance.image
 
     if img:
-        uploader.destroy(img.name)
+        os.remove(img.path)
+        # uploader.destroy(img.name)
         
